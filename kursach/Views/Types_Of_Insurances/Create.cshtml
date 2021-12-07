@@ -1,0 +1,53 @@
+﻿@model kursach.Models.Types_Of_Insurance
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Types_Of_Insurance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InsuranceTypeCode" class="control-label"></label>
+                <input asp-for="InsuranceTypeCode" class="form-control" />
+                <span asp-validation-for="InsuranceTypeCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeDescription" class="control-label"></label>
+                <input asp-for="TypeDescription" class="form-control" />
+                <span asp-validation-for="TypeDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AveragePricePerYear" class="control-label"></label>
+                <input asp-for="AveragePricePerYear" class="form-control" />
+                <span asp-validation-for="AveragePricePerYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageRisk" class="control-label"></label>
+                <input asp-for="AverageRisk" class="form-control" />
+                <span asp-validation-for="AverageRisk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AverageCoverage" class="control-label"></label>
+                <input asp-for="AverageCoverage" class="form-control" />
+                <span asp-validation-for="AverageCoverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

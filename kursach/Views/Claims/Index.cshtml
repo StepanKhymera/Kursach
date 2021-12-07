@@ -1,0 +1,53 @@
+﻿@model IEnumerable<kursach.Models.Claim>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfClaim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmoutOfClaim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Policy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfClaim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmoutOfClaim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Policy.PolicyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusCodeNavigation.StatusDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClaimId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClaimId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClaimId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

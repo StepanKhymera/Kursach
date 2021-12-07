@@ -1,0 +1,51 @@
+﻿@model kursach.Models.Claim
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Claim</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClaimId" class="control-label"></label>
+                <input asp-for="ClaimId" class="form-control" />
+                <span asp-validation-for="ClaimId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusCode" class="control-label"></label>
+                <select asp-for="StatusCode" class ="form-control" asp-items="ViewBag.StatusCode"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyId" class="control-label"></label>
+                <select asp-for="PolicyId" class ="form-control" asp-items="ViewBag.PolicyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfClaim" class="control-label"></label>
+                <input asp-for="DateOfClaim" class="form-control" />
+                <span asp-validation-for="DateOfClaim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmoutOfClaim" class="control-label"></label>
+                <input asp-for="AmoutOfClaim" class="form-control" />
+                <span asp-validation-for="AmoutOfClaim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

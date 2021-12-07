@@ -1,0 +1,65 @@
+﻿@model kursach.Models.Policy
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Policy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PolicyId" class="control-label"></label>
+                <input asp-for="PolicyId" class="form-control" />
+                <span asp-validation-for="PolicyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="InsuranceType" class="control-label"></label>
+                <select asp-for="InsuranceType" class ="form-control" asp-items="ViewBag.InsuranceType"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyStartDate" class="control-label"></label>
+                <input asp-for="PolicyStartDate" class="form-control" />
+                <span asp-validation-for="PolicyStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PolicyExpirationDate" class="control-label"></label>
+                <input asp-for="PolicyExpirationDate" class="form-control" />
+                <span asp-validation-for="PolicyExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnualFee" class="control-label"></label>
+                <input asp-for="AnualFee" class="form-control" />
+                <span asp-validation-for="AnualFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coverage" class="control-label"></label>
+                <input asp-for="Coverage" class="form-control" />
+                <span asp-validation-for="Coverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
